@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: CONFIG-SERVICE
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:config/common/,classpath:config/{application}
+#            - /Users/alan1914/dev/config/config-repo/common/
+#            - /Users/alan1914/dev/config/config-repo/{application}
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-service:8761/eureka
+  instance:
+    prefer-ip-address: true
+management:
+  endpoints:
+    web:
+      expose: "*"
